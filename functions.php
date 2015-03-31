@@ -13,6 +13,14 @@ define( 'SIMPLE_VERSION', 1.0 );
 add_theme_support( 'automatic-feed-links' );
 
 /*-----------------------------------------------------------------------------------*/
+/* Add Feature image support and image sizes
+/*-----------------------------------------------------------------------------------*/
+add_theme_support( 'post-thumbnails' ); 
+
+add_image_size( 'featured-image', 775 ); // 775 wide, scale height proportionately
+add_image_size( 'featured-thumb', 160, 160, true ); //hard square crop
+
+/*-----------------------------------------------------------------------------------*/
 /* Register main menu for Wordpress use
 /*-----------------------------------------------------------------------------------*/
 register_nav_menus(
@@ -49,6 +57,8 @@ add_action( 'widgets_init', 'simple_register_sidebars' );
 
 function simple_scripts()  {
 	// get the theme directory style.css and link to it in the header
+	wp_enqueue_style( 'formstone-grid', get_template_directory_uri() . '/components/formstone/dist/css/grid.css', false, SIMPLE_VERSION, 'all' );
+
 	wp_enqueue_style( 'simple-main', get_template_directory_uri() . '/css/main.css', false, SIMPLE_VERSION, 'all' );
 
 	// add fitvid

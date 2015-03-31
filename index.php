@@ -32,6 +32,13 @@
 					<?php endif; ?>
 				</div>
 				<div>
+					<?php
+                        // draw the thumbnail is there is one
+                        if ( has_post_thumbnail() ) {
+                            the_post_thumbnail( 'featured-thumb' , array("class" => "listing_article_image"));
+                        }
+                    ?>
+
 					<?php the_content( 'Continue...' );
 					// This call the main content of the post, the stuff in the main text box while composing.
 					// This will wrap everything in p tags and show a link as 'Continue...' where/if the
